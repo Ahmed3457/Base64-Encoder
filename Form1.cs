@@ -39,22 +39,41 @@ namespace Base64_Encoder
 
         private void EncodeBtn_Click(object sender, EventArgs e)
         {
-            if (checkBox1.Checked == true){
-                string text = textBox1.Text;
-                byte[] encodedText = System.Convert.FromBase64String(text);
-                EncodedTextLabel.Text = System.Text.Encoding.UTF8.GetString(encodedText);
-            }
-            else
+            try
             {
-                string text = textBox1.Text;
-                byte[] decodedText = System.Text.Encoding.UTF8.GetBytes(text);
-                EncodedTextLabel.Text = System.Convert.ToBase64String(decodedText);
+                if (checkBox1.Checked == true)
+                {
+                    string text = textBox1.Text;
+                    byte[] encodedText = System.Convert.FromBase64String(text);
+                    EncodedTextLabel.Text = System.Text.Encoding.UTF8.GetString(encodedText);
+                }
+                else
+                {
+                    string text = textBox1.Text;
+                    byte[] decodedText = System.Text.Encoding.UTF8.GetBytes(text);
+                    EncodedTextLabel.Text = System.Convert.ToBase64String(decodedText);
+                }
+            }
+            catch (System.FormatException)
+            {
+                return;
             }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
            
+        }
+
+        private void copyToClipboard(object sender, EventArgs e)
+        {
+            string text = EncodedTextLabel.Text;
+            Clipboard.SetText(text);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

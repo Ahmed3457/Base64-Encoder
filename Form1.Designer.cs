@@ -34,7 +34,8 @@ namespace Base64_Encoder
             this.EncodeBtn = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.EncodedTextLabel = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.EncodedTextLabel = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,8 +43,9 @@ namespace Base64_Encoder
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Control;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.EncodedTextLabel);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.EncodeBtn);
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -74,7 +76,8 @@ namespace Base64_Encoder
             this.textBox1.Location = new System.Drawing.Point(0, 227);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(482, 107);
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(479, 107);
             this.textBox1.TabIndex = 2;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -90,17 +93,29 @@ namespace Base64_Encoder
             this.checkBox1.UseVisualStyleBackColor = true;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(-1, 163);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(482, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Copy To Clipboard";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.copyToClipboard);
+            // 
             // EncodedTextLabel
             // 
-            this.EncodedTextLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.EncodedTextLabel.Font = new System.Drawing.Font("Segoe UI", 13F);
-            this.EncodedTextLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.EncodedTextLabel.Location = new System.Drawing.Point(0, 0);
+            this.EncodedTextLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.EncodedTextLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.EncodedTextLabel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.EncodedTextLabel.Location = new System.Drawing.Point(3, 3);
+            this.EncodedTextLabel.Multiline = true;
             this.EncodedTextLabel.Name = "EncodedTextLabel";
-            this.EncodedTextLabel.Size = new System.Drawing.Size(482, 184);
-            this.EncodedTextLabel.TabIndex = 0;
-            this.EncodedTextLabel.Text = "Click \"Encode/Decode\" To Encode/Decode Text From Base64";
-            this.EncodedTextLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.EncodedTextLabel.ReadOnly = true;
+            this.EncodedTextLabel.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.EncodedTextLabel.Size = new System.Drawing.Size(479, 154);
+            this.EncodedTextLabel.TabIndex = 5;
+            this.EncodedTextLabel.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // Form1
             // 
@@ -127,7 +142,8 @@ namespace Base64_Encoder
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button EncodeBtn;
         private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.Label EncodedTextLabel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox EncodedTextLabel;
     }
 }
 
